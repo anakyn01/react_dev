@@ -1,8 +1,17 @@
 import {Component} from "react";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import {Table, Button } from "react-bootstrap";
+import Axios from "axios";
+//데이터를 콘트롤 할때 사용함
+const submitTest = () =>{
+    Axios.get("http://localhost:8000/",{}).then(() =>{
+        alert("등록완료");
+    });
+}
+
 
 class BoardList extends Component{
+
  render(){
     return(
 <>
@@ -29,7 +38,7 @@ class BoardList extends Component{
 </Table>
 <div className="d-flex justify-content-end my-5">
 <div className="btn-group">
-    <Button variant="info">글쓰기</Button>
+    <Button variant="info" onClick={submitTest}>글쓰기</Button>
     <Button variant="secondary">수정하기</Button>
     <Button variant="danger">삭제하기</Button>
 </div>
