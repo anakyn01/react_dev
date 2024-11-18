@@ -27,7 +27,7 @@ database:"bbs",
 
 app.get("/list",(req, res) => {
 const sqlQuery = 
-"select board_id, board_title, register_id, date_format(register_date, '%Y-%m-%d') as register_date from board;";
+"select BOARD_ID, BOARD_TITLE, REGISTER_ID, date_format(REGISTER_DATE, '%Y-%m-%d') as REGISTER_DATE from BOARD;";
 db.query(sqlQuery,(err, result) => {
 res.send(result);
 });
