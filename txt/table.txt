@@ -1,0 +1,10 @@
+use bbs;
+create table BOARD(
+BOARD_ID int not null auto_increment primary key,
+BOARD_TITLE varchar(30),
+BOARD_content varchar(2048),
+REGISTER_ID varchar(20),
+REGISTER_DATE DATETIME DEFAULT now(),
+UPDATER_ID varchar(20),
+UPDATER_DATE DATETIME DEFAULT now()
+);
