@@ -3,6 +3,8 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import {Table, Button } from "react-bootstrap";
 import Axios from "axios";
 
+//list까지 완료
+
 const Board = ({
 id, title, registerId, registerDate,//필드
 }:{
