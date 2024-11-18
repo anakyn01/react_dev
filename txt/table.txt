@@ -9,3 +9,8 @@ UPDATER_ID varchar(20),
 UPDATER_DATE DATETIME DEFAULT now()
 );
 select * from BOARD;
+
+insert into BOARD(BOARD_TITLE, BOARD_CONTENT, REGISTER_ID) values ('제목1','내용1','hwang');
+insert into BOARD(BOARD_TITLE, BOARD_CONTENT, REGISTER_ID) values ('제목2','내용2','hwang');
+
+select *from BOARD;
