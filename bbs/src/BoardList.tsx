@@ -6,13 +6,21 @@ import Axios from "axios";
 //list까지 완료
 
 const Board = ({
-id, title, registerId, registerDate,//필드
+id, title, registerId, registerDate, props,//필드
 }:{
-id:number; title:string; registerId:string; registerDate:string;//필드 타입
+id:number; title:string; registerId:string; registerDate:string; props:any;//필드 타입
 }) =>{
 return(
 <tr>
-    <td><input type="checkbox" className="form-check"/></td>
+    <td>
+        <input 
+        type="checkbox" 
+        className="form-check"
+        value={id}
+        onChange={(e) =>{
+props.onCheckboxChange(e.currentTarget.checked, e.currentTarget.value);            
+        }}
+        /></td>
     <td>{id}</td>
     <td>{title}</td>
     <td>{registerId}</td>
@@ -20,11 +28,22 @@ return(
 </tr>
 );
 };
+interface IProps{
+isComplete:boolean;
+handleModify:any;
+renderComplete:any;    
+}
+class BoardList extends Component<IProps>{
 
+constructor(props:any){
+    super(props);
+    this.state = {
+        boardList:[],
+        checkList:[], 
+    }
+}
 
-class BoardList extends Component{
-
- state = {boardList:[],};//상태 = 어레이 초기화
+ state = {boardList:[], checkList:[],};//상태 = 어레이 초기화
 
  getList = () => {
     Axios.get("http://localhost:8000/list", {})
@@ -33,15 +52,32 @@ class BoardList extends Component{
         this.setState({
             boardList: data,
         });
+        this.props.renderComplete();
     })
     .catch((e) => {
         console.error(e);
     });
  };
+ onCheckboxChange = (checked:boolean, id:any) =>{
+    const list: Array<string> = this.state.checkList.filter((v) =>{
+        return v != id;
+    });
+    if(checked){
+        list.push(id);
+    }
+    this.setState({
+        checkList:list,
+    });
+ }
 
  //데이터를 렌더하기전에 붙임
  componentDidMount(){
      this.getList();
+ }
+ componentDidUpdate(){
+    if(!this.props.isComplete){
+        this.getList();
+    } 
  }
 
  render(){
@@ -74,6 +110,7 @@ title={v.BOARD_TITLE}
 registerId={v.REGISTER_ID} 
 registerDate={v.REGISTER_DATE}
 key={v.BOARD_ID}
+props={this}
 />
     );
 })
@@ -82,9 +119,15 @@ key={v.BOARD_ID}
 </Table>
 <div className="d-flex justify-content-end my-5">
 <div className="btn-group">
-    <Button variant="info">글쓰기</Button>
-    <Button variant="secondary">수정하기</Button>
-    <Button variant="danger">삭제하기</Button>
+<Button variant="info">글쓰기</Button>
+<Button 
+variant="secondary"
+onClick={() => {
+this.props.handleModify(this.state.checkList);  
+}}
+>
+수정하기</Button>
+<Button variant="danger">삭제하기</Button>
 </div>
 </div>
 

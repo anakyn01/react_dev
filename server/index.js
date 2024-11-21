@@ -48,7 +48,7 @@ app.post("/insert", (req, res) =>{
     const content = req.body.content;//내용
 
 const sqlQuery =
-"insert into board (board_title, board_content, register_id) values (?,?,'hwang');";
+"insert into BOARD (BOARD_TITLE, BOARD_CONTENT, REGISTER_ID) values (?,?,'hwang');";
 db.query(sqlQuery,[title, content],(err, result) =>{
 res.send(result);
 });
@@ -61,7 +61,7 @@ const title = req.body.title;
 const content = req.body.content;
 
 const sqlQuery =
-"update board set board_title = ?, board_content = ?, updater_id ='hwang' where board_id = ?;";
+"update BOARD set BOARD_TITLE = ?, BOARD_CONTENT = ?, UPDATE_ID ='hwang' where BOARD_ID = ?;";
 db.query(sqlQuery,[title, content, id], (err, result) =>{
 res.send(result);
 });
