@@ -28,7 +28,7 @@ props.onCheckboxChange(e.currentTarget.checked, e.currentTarget.value);
 </tr>
 );
 };
-interface IProps{
+interface IProps{// 인터페이스 바디가 없는 구현체 자바(본문이 없고 핵심 줄만 있는것)
 isComplete:boolean;
 handleModify:any;
 renderComplete:any;    

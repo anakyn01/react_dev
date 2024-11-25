@@ -10,8 +10,8 @@ function App() {
     <div className="container">
       <div className="row">
         <div className="col-md-12">
-        <BoardList/>{/*리스트*/}
-        <Write/>{/*쓰기 */}
+        <BoardList/>
+        <Write/>
         </div>
       </div>
     </div>
