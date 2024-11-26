@@ -55,9 +55,9 @@ render(){
             renderComplete={this.renderComplete}
             />
             <Write
-                        isModifyMode={this.state.isModifyMode}
-                        boardId={this.state.boardId}
-                        handleCancel={this.handleCancel}
+            isModifyMode={this.state.isModifyMode}
+            boardId={this.state.boardId}
+            handleCancel={this.handleCancel}
             />
             </div>
           </div>
