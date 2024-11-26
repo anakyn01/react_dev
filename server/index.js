@@ -36,7 +36,7 @@ res.send(result);
 app.post("/detail",(req, res) => {
 const id = req.body.id;
 const sqlQuery =
-"select board_id, board_title, board_content from board where board_id = ?;";
+"select BOARD_ID, BOARD_TITLE, BOARD_CONTENT from board where BOARD_ID = ?;";
 db.query(sqlQuery,[id],(err,result) =>{
 res.send(result);
 });
@@ -71,7 +71,7 @@ res.send(result);
 app.post("/delete",(req, res) => {
 const id = req.body.boardIdList;
 
-const sqlQuery=`delete from board where board_id in (${id.join()})`;
+const sqlQuery=`delete from board where BOARD_ID in (${id.join()})`;
 db.query(sqlQuery,(err, result) => {
 res.send(result);
 });
