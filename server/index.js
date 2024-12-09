@@ -3,7 +3,7 @@ const cors = require("cors");//출처허용 옵션
 const app = express();
 const mysql = require("mysql");
 //상수 mysql은 mysql모듈을 사용하겠다는 의미
-const PORT = process.env.port || 8000;
+const PORT = process.env.port || 9500;
 const bodyParser = require("body-parser");
 
 

@@ -28,7 +28,7 @@ state = {
 }
 //최초에 글을 쓰기
 write = () =>{
-    Axios.post("http://localhost:8000/insert",{
+    Axios.post("http://localhost:9500/insert",{
         title: this.state.title,//타이틀에 스테이트 타이틀을 대입
         content: this.state.content,//콘텐츠에 스테이트 콘텐츠를 대입
     }).then((res) =>{
@@ -42,7 +42,7 @@ write = () =>{
 };
 //수정하기
 update = () => {
-    Axios.post("http://localhost:8000/update",{
+    Axios.post("http://localhost:9500/update",{
         title: this.state.title,
         content: this.state.content,
         id:this.props.boardId,
@@ -60,7 +60,7 @@ update = () => {
 };
 
 detail = () =>  {
-    Axios.get(`http://localhost:8000/detail?id=${this.props.boardId}`)
+    Axios.get(`http://localhost:9500/detail?id=${this.props.boardId}`)
     .then((res) =>   {
         if(res.data.length > 0){//데이터가 존재 한다면
             this.setState({//상태 설정

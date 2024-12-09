@@ -46,7 +46,7 @@ constructor(props:any){
  state = {boardList:[], checkList:[],};//상태 = 어레이 초기화
 
  getList = () => {
-    Axios.get("http://localhost:8000/list", {})
+    Axios.get("http://localhost:9500/list", {})
     .then((res) =>{
         const {data} = res;
         this.setState({
@@ -78,7 +78,7 @@ constructor(props:any){
     this.state.checkList.forEach((v: any) => {
     boardIdList += `'${v}',`;   
     });
-    Axios.post("http://localhost:8000/delete",{
+    Axios.post("http://localhost:9500/delete",{
         boardIdList:boardIdList.substring(0, boardIdList.length -1)
     }).then(() =>{
         this.getList();
