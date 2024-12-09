@@ -1,3 +1,4 @@
+create  database bbs;
 use bbs;
 create table BOARD(
 BOARD_ID int not null auto_increment primary key,
