@@ -3,6 +3,7 @@ import {Component} from "react";
 import BoardList from './BoardList';
 import Slide from './Slide';
 import Write from './Write';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
 
 class App extends Component{
 
@@ -10,7 +11,7 @@ class App extends Component{
     isModifyMode:false,
     isComplete:true,
     boardId:0,
-  }
+  };
 
   handleModify = (checkList: any) => {
     if(checkList.length == 0){//수정할 게시글이 선택되지 않았다면
@@ -34,13 +35,13 @@ this.setState({
   isComplete:false,
   boardId:0,
 })
-  }
+}
 
   renderComplete = () => {
 this.setState({
 isComplete:true,
 });
-  }
+};
 
 render(){
   return (
@@ -49,16 +50,27 @@ render(){
         <div className="container">
           <div className="row">
             <div className="col-md-12">
-            <BoardList
-            isComplete={this.state.isComplete}
-            handleModify={this.handleModify}
-            renderComplete={this.renderComplete}
-            />
+              <BrowserRouter>
+              <Routes>
+                <Route path="/" element={
+                  <BoardList
+                  isComplete={this.state.isComplete}
+                  handleModify={this.handleModify}
+                  renderComplete={this.renderComplete}
+                  />
+                }>
+                </Route>
+            <Route path="/write" element={
             <Write
             isModifyMode={this.state.isModifyMode}
             boardId={this.state.boardId}
             handleCancel={this.handleCancel}
             />
+            }>
+            </Route>
+
+            </Routes>
+            </BrowserRouter>
             </div>
           </div>
         </div>

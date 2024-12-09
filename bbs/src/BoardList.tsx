@@ -2,6 +2,7 @@ import {Component} from "react";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import {Table, Button } from "react-bootstrap";
 import Axios from "axios";
+import {Link} from "react-router-dom";
 
 //list까지 완료
 
@@ -136,7 +137,9 @@ props={this}
 </Table>
 <div className="d-flex justify-content-end my-5">
 <div className="btn-group">
-<Button variant="info">글쓰기</Button>
+    <Link to="/write">
+        <Button variant="info">글쓰기</Button>
+    </Link>
 <Button 
 variant="secondary"
 onClick={() => {

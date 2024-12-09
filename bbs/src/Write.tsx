@@ -1,6 +1,7 @@
 import {Component} from "react";
 import {Form, Button} from "react-bootstrap";
 import Axios from "axios";// 리액트에서 데이터베이스를 사용하려면 필요함
+import {Link} from "react-router-dom";
 
 interface IProps{
 isModifyMode:boolean;//isModifyMode 부울 ture, false
@@ -121,7 +122,9 @@ onClick={this.props.isModifyMode ? this.update : this.write  }
 >
 작성완료
 </Button>
-<Button variant="secondary" onClick={this.props.handleCancel}>취소</Button>
+<Link to="/">
+    <Button variant="secondary" onClick={this.props.handleCancel}>취소</Button>
+</Link>
     </div>
 </div>
 </>  
