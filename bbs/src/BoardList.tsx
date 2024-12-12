@@ -3,6 +3,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import {Table, Button } from "react-bootstrap";
 import Axios from "axios";
 import {Link} from "react-router-dom";
+import Slide from "./Slide";
 
 //list까지 완료
 
@@ -104,6 +105,7 @@ constructor(props:any){
 
     return(
 <>
+<Slide/>
 <h1 className="my-5">게시판</h1>
 <Table striped bordered hover>
     <colgroup>

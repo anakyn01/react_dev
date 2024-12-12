@@ -4,7 +4,11 @@ import BoardList from './BoardList';
 import Slide from './Slide';
 import Write from './Write';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
-
+import Header from './include/Header';
+import Python from './Python';
+import Profile from './Profile';
+import Skill from './Skill';
+import 'bootstrap/dist/css/bootstrap.min.css';
 class App extends Component{
 
   state = {
@@ -46,7 +50,8 @@ isComplete:true,
 render(){
   return (
     <>
-    <Slide/>
+    <Header/>
+
         <div className="container">
           <div className="row">
             <div className="col-md-12">
@@ -68,7 +73,9 @@ render(){
             />
             }>
             </Route>
-
+            <Route path="/python" element={<Python/>}/>
+            <Route path="/profile" element={<Profile/>}/>
+            <Route path="/skill" element={<Skill/>}/>
             </Routes>
             </BrowserRouter>
             </div>
