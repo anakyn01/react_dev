@@ -1,0 +1,5 @@
+bbs => npm install
+server => npm i axios
+
+npm install nodemon
+npm install express body-parser mysql
