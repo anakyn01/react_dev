@@ -8,9 +8,17 @@ import Slide from "./Slide";
 //list까지 완료
 
 const Board = ({
-id, title, registerId, registerDate, props,//필드
+id, 
+title, 
+registerId, 
+registerDate, 
+props,//필드
 }:{
-id:number; title:string; registerId:string; registerDate:string; props:any;//필드 타입
+id:number; 
+title:string; 
+registerId:string; 
+registerDate:string; 
+props:any;//필드 타입
 }) =>{
 return(
 <tr>
@@ -152,13 +160,16 @@ props={this}
     <Link to="/write">
         <Button variant="info">글쓰기</Button>
     </Link>
-<Button 
-variant="secondary"
-onClick={() => {
-this.props.handleModify(this.state.checkList);  
-}}
->
-수정하기</Button>
+    <Link to="/write">
+    <Button 
+        variant="secondary"
+        onClick={() => {
+        this.props.handleModify(this.state.checkList);  
+        }}
+    >
+        수정하기</Button>
+    </Link>
+
 <Button 
 variant="danger" 
 onClick={this.handleDelete}

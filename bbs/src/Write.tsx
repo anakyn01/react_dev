@@ -1,5 +1,5 @@
 import {Component} from "react";
-import {Form, Button} from "react-bootstrap";
+import {Form, Button, Container, Row, Col} from "react-bootstrap";
 import Axios from "axios";// 리액트에서 데이터베이스를 사용하려면 필요함
 import {Link} from "react-router-dom";
 
@@ -92,6 +92,10 @@ componentDidUpdate = (preProps:any) => {
     render(){
         return(
 <>
+<Container>
+    <Row>
+        <Col>
+<h1 className="my-5">글쓰기</h1>
 <Form>
     <Form.Group className="mb-3" controlId="">
         <Form.Label>제목</Form.Label>
@@ -127,6 +131,9 @@ onClick={this.props.isModifyMode ? this.update : this.write  }
 </Link>
     </div>
 </div>
+</Col>
+    </Row>
+</Container>
 </>  
         );
     }
