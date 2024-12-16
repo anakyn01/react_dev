@@ -1,0 +1,149 @@
+import {Button, Container,Row,Col, Card, Accordion, Spinner} from 'react-bootstrap';
+
+const Skill = () => {
+    return(
+<>
+<Container>
+    <Row>
+        <Col>
+<Spinner animation='border' variant='warning'/>       
+        </Col>
+        <Col>
+<Spinner animation='border' variant='warning'/>       
+        </Col>
+        <Col>
+<Spinner animation='border' variant='warning'/>       
+        </Col>
+        <Col>
+<Spinner animation='border' variant='warning'/>       
+        </Col>
+    </Row>
+</Container>
+</>
+    );
+}
+export default Skill;
+
+import {Button, Container,Row,Col, Card, Figure} from 'react-bootstrap';
+
+const Python = () => {
+    return(
+<>
+<Container>
+<Row>
+<Col sm={6}>
+<Figure className="mt-3">
+    <Figure.Image
+    width={171} height={180} alt="171 X 180" src=""
+    />
+</Figure>
+</Col>
+<Col sm={6}>
+<Figure className="mt-3">
+    <Figure.Image
+    width={171} height={180} alt="171 X 180" src=""
+    />
+</Figure>
+</Col>   
+</Row>
+</Container>
+
+<Container>
+<Row>
+<Col sm={4}>
+<Card className='mt-3'>
+    <Card.Img variant="top" src="holder.js/100px180"/>
+    <Card.Body>
+        <Card.Title>Card Title</Card.Title>
+        <Card.Text>
+        Some quick example text to build on the card title and make up the
+        bulk of the card's content.     
+        </Card.Text>
+        <Button variant="primary">Go somewhere</Button>
+    </Card.Body>
+</Card>
+</Col>
+<Col sm={4}>
+<Card className='mt-3'>
+    <Card.Img variant="top" src="holder.js/100px180"/>
+    <Card.Body>
+        <Card.Title>Card Title</Card.Title>
+        <Card.Text>
+        Some quick example text to build on the card title and make up the
+        bulk of the card's content.     
+        </Card.Text>
+        <Button variant="primary">Go somewhere</Button>
+    </Card.Body>
+</Card>
+</Col>
+<Col sm={4}>
+<Card className='mt-3'>
+    <Card.Img variant="top" src="holder.js/100px180"/>
+    <Card.Body>
+        <Card.Title>Card Title</Card.Title>
+        <Card.Text>
+        Some quick example text to build on the card title and make up the
+        bulk of the card's content.     
+        </Card.Text>
+        <Button variant="primary">Go somewhere</Button>
+    </Card.Body>
+</Card>
+</Col>
+</Row>
+</Container>
+</>
+    )
+}
+export default Python;
+
+import {Button, Container,Row,Col, Card, Accordion} from 'react-bootstrap';
+
+const Profile = () =>  {
+    return(
+<>
+<Container>
+<Row>
+<Col>
+<h1 className="my-5">profile</h1>
+</Col>    
+</Row>
+<Row>
+<Col>
+<Card>
+    <Card.Img variant='top' src=""/>
+    <Card.Body>
+<Card.Title>황영일</Card.Title>  
+<Card.Text>
+황영일의 프로필 입니다
+</Card.Text> 
+<Button variant="primary">more</Button>     
+    </Card.Body>
+</Card>
+</Col>
+<Col>
+<Accordion defaultActiveKey="0" flush>
+    <Accordion.Item eventKey='0'>
+        <Accordion.Header>
+            취미는 ?
+        </Accordion.Header>
+        <Accordion.Body>
+            제곧내
+        </Accordion.Body>
+    </Accordion.Item>
+
+    <Accordion.Item eventKey='1'>
+        <Accordion.Header>
+            취미는 ?
+        </Accordion.Header>
+        <Accordion.Body>
+            제곧내
+        </Accordion.Body>
+    </Accordion.Item>
+</Accordion>
+</Col>
+</Row>
+</Container>
+</>
+    );
+}
+export default Profile;
