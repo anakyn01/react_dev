@@ -1,6 +1,6 @@
 import {Component} from "react";
 import 'bootstrap/dist/css/bootstrap.min.css';
-import {Table, Button } from "react-bootstrap";
+import {Table, Button, Container, Row, Col } from "react-bootstrap";
 import Axios from "axios";
 import {Link} from "react-router-dom";
 import Slide from "./Slide";
@@ -105,7 +105,17 @@ constructor(props:any){
 
     return(
 <>
-<Slide/>
+<Container fluid>
+    <Row>
+        <Col>
+        <Slide/>
+        </Col>
+    </Row>
+</Container>
+
+<Container>
+    <Row>
+        <Col>
 <h1 className="my-5">게시판</h1>
 <Table striped bordered hover>
     <colgroup>
@@ -155,11 +165,9 @@ onClick={this.handleDelete}
 >삭제하기</Button>
 </div>
 </div>
-
-
-
-
-
+</Col>
+</Row>
+</Container>
 
 </>
     );

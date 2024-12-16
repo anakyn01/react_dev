@@ -51,10 +51,6 @@ render(){
   return (
     <>
     <Header/>
-
-        <div className="container">
-          <div className="row">
-            <div className="col-md-12">
               <BrowserRouter>
               <Routes>
                 <Route path="/" element={
@@ -78,9 +74,7 @@ render(){
             <Route path="/skill" element={<Skill/>}/>
             </Routes>
             </BrowserRouter>
-            </div>
-          </div>
-        </div>
+
     </>
       );
 }
