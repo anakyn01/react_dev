@@ -10,12 +10,14 @@ import Slide from "./Slide";
 const Board = ({
 id, 
 title, 
+content,
 registerId, 
 registerDate, 
 props,//필드
 }:{
 id:number; 
 title:string; 
+content:string;
 registerId:string; 
 registerDate:string; 
 props:any;//필드 타입
@@ -33,17 +35,17 @@ props.onCheckboxChange(e.currentTarget.checked, e.currentTarget.value);
         /></td>
     <td>{id}</td>
     <td><a href="/detail">{title}</a></td>
+    <td>{content}</td>
     <td>{registerId}</td>
     <td>{registerDate}</td>
 </tr>
 );
 };
 interface IProps{// 인터페이스 바디가 없는 구현체 자바(본문이 없고 핵심 줄만 있는것)
-isComplete:boolean;
-handleModify:any;
-renderComplete:any;    
+boardId: number;
+handleCancel:() => void;   
 }
-class BoardList extends Component<IProps>{
+class Detail extends Component<IProps>{
 
 constructor(props:any){
     super(props);
@@ -55,19 +57,7 @@ constructor(props:any){
 
  state = {boardList:[], checkList:[],};//상태 = 어레이 초기화
 
- getList = () => {
-    Axios.get("http://localhost:9500/list", {})
-    .then((res) =>{
-        const {data} = res;
-        this.setState({
-            boardList: data,
-        });
-        this.props.renderComplete();
-    })
-    .catch((e) => {
-        console.error(e);
-    });
- };
+
  onCheckboxChange = (checked:boolean, id:any) =>{
     const list: Array<string> = this.state.checkList.filter((v) =>{
         return v != id;
@@ -79,33 +69,17 @@ constructor(props:any){
         checkList:list,
     });
  }
- handleDelete = () => {
-    if(this.state.checkList.length == 0){
-        alert("삭제할 게시글을 선택하세요");
-        return;
-    }
-    let boardIdList = "";
-    this.state.checkList.forEach((v: any) => {
-    boardIdList += `'${v}',`;   
-    });
-    Axios.post("http://localhost:9500/delete",{
-        boardIdList:boardIdList.substring(0, boardIdList.length -1)
-    }).then(() =>{
-        this.getList();
-    }).catch((e) => {
-        console.error(e);
-    })
- }
+
 
  //데이터를 렌더하기전에 붙임
- componentDidMount(){
+ /*componentDidMount(){
      this.getList();
  }
  componentDidUpdate(){
     if(!this.props.isComplete){
         this.getList();
     } 
- }
+ }*/
 
  render(){
 
@@ -113,29 +87,24 @@ constructor(props:any){
 
     return(
 <>
-<Container fluid>
-    <Row>
-        <Col>
-        <Slide/>
-        </Col>
-    </Row>
-</Container>
+
 
 <Container>
     <Row>
         <Col>
-<h1 className="my-5">게시판</h1>
+<h1 className="my-5">Read</h1>
 <Table striped bordered hover>
     <colgroup>
 <col style={{"width":"10%"}}/>
 <col style={{"width":"10%"}}/>
-<col style={{"width":"60%"}}/>
+<col style={{"width":"50%"}}/>
 <col style={{"width":"10%"}}/>
-<col style={{"width":"10%"}}/>    
+<col style={{"width":"10%"}}/>
+<col style={{"width":"10%"}}/>     
     </colgroup>
     <thead>
         <tr className="text-center">
-<th>체크박스</th><th>번호</th><th>제목</th><th>작성자</th><th>작성일</th>
+<th>체크박스</th><th>번호</th><th>제목</th><th>내용</th><th>작성자</th><th>작성일</th>
         </tr>
     </thead>
     <tbody>
@@ -145,6 +114,7 @@ boardList.map((v:any) => {
 <Board 
 id={v.BOARD_ID} 
 title={v.BOARD_TITLE} 
+content={v.BOARD_CONTENT}
 registerId={v.REGISTER_ID} 
 registerDate={v.REGISTER_DATE}
 key={v.BOARD_ID}
@@ -157,22 +127,18 @@ props={this}
 </Table>
 <div className="d-flex justify-content-end my-5">
 <div className="btn-group">
-    <Link to="/write">
-        <Button variant="info">글쓰기</Button>
+    <Link to="/">
+        <Button variant="info">home</Button>
     </Link>
     <Link to="/write">
     <Button 
         variant="secondary"
-        onClick={() => {
-        this.props.handleModify(this.state.checkList);  
-        }}
     >
         수정하기</Button>
     </Link>
 
 <Button 
 variant="danger" 
-onClick={this.handleDelete}
 >삭제하기</Button>
 </div>
 </div>
@@ -184,7 +150,7 @@ onClick={this.handleDelete}
     );
  }
 }
-export default BoardList;
+export default Detail;
 
 /*
 데이터를 콘트롤 할때 사용함

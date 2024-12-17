@@ -8,6 +8,7 @@ import Header from './include/Header';
 import Python from './Python';
 import Profile from './Profile';
 import Skill from './Skill';
+import Detail from './Detail';
 import 'bootstrap/dist/css/bootstrap.min.css';
 class App extends Component{
 
@@ -64,6 +65,13 @@ render(){
             <Route path="/write" element={
             <Write
             isModifyMode={this.state.isModifyMode}
+            boardId={this.state.boardId}
+            handleCancel={this.handleCancel}
+            />
+            }>
+            </Route>
+            <Route path="/detail" element={
+            <Detail
             boardId={this.state.boardId}
             handleCancel={this.handleCancel}
             />
