@@ -5,21 +5,21 @@ import {Carousel, CarouselItem, CarouselControl, CarouselIndicators,
 
 const items = [//이미지 소스 정의
     {
-src:'https://picsum.photos/id/123/1200/400',
+src:'images/1.jpg',
 altText:'Silde 1',
-caption:'Silde 1',
+caption:'연호1',
 key:1,
     },
     {
-        src:'https://picsum.photos/id/456/1200/400',
+        src:'images/2.jpg',
         altText:'Silde 2',
-        caption:'Silde 2',
+        caption:'연호2',
         key:2,
     },
     {
-        src:'https://picsum.photos/id/678/1200/400',
+        src:'images/3.jpg',
         altText:'Silde 3',
-        caption:'Silde 3',
+        caption:'연호3',
         key:3,
     },
 ];

@@ -6,16 +6,20 @@ const Skill = () => {
 <Container>
     <Row>
         <Col>
-<Spinner animation='border' variant='warning'/>       
+<Spinner animation='border' variant='warning'/>게임개발
+<img src=""/>     
         </Col>
         <Col>
-<Spinner animation='border' variant='warning'/>       
+<Spinner animation='border' variant='warning'/>C#
+<img src=""/>         
         </Col>
         <Col>
-<Spinner animation='border' variant='warning'/>       
+<Spinner animation='border' variant='warning'/>python  
+<img src=""/>       
         </Col>
         <Col>
-<Spinner animation='border' variant='warning'/>       
+<Spinner animation='border' variant='warning'/>react
+<img src=""/>         
         </Col>
     </Row>
 </Container>

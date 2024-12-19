@@ -12,11 +12,11 @@ const Profile = () =>  {
 <Row>
 <Col>
 <Card>
-    <Card.Img variant='top' src=""/>
+    <Card.Img variant='top' src="images/profile.jpg"/>
     <Card.Body>
-<Card.Title>황영일</Card.Title>  
+<Card.Title>김련호</Card.Title>  
 <Card.Text>
-황영일의 프로필 입니다
+김련호의 프로필 입니다
 </Card.Text> 
 <Button variant="primary">more</Button>     
     </Card.Body>
